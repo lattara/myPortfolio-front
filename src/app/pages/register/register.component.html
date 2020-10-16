@@ -1,0 +1,24 @@
+<div class="container">
+    <app-title class="row title-register" [mode]="'subtitle'" [text]="'Register'"></app-title>
+        <div class="row register-form-container">
+            <div class="form-frame">
+            <mat-form [formGroup]="registerUserData">
+        <mat-form-field class="col-12" appearance="outline">
+                        <mat-label>Identifiant</mat-label>
+                        <input formControlName="identifiant" matInput>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="col-6" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput formControlName="password">
+                    </mat-form-field>
+                    <mat-form-field class="col-6"  appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input formControlName="email" matInput>
+                    </mat-form-field>
+        </mat-form>
+        <app-button class="register-button" [label]="'Register'" [icon]="'far fa-envelope'" (click)="registerUser()"></app-button>
+        </div>
+    </div>
+        <span routerLink = "/login" class="already-acc">I already have an acc</span>
+</div>

@@ -1,0 +1,52 @@
+.container {
+    height: 120vh;
+    width: 80vw;
+    margin-left: 300px !important;
+    margin-right: 100px !important;
+    overflow: scroll;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: var(--secondary-dashboard);
+}
+
+.fa-cogs {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 40px;
+    color: #0a041f;
+}
+
+ul li {
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-left: 35px;
+    font-weight: bolder;
+    color:var(--primary-darkened);
+    cursor: pointer;
+}
+
+ul li:focus {
+    outline: none !important;
+}
+
+
+
+.router-outlet-container {
+    position: relative;
+    height: 100vh;
+    overflow: scroll;
+}
+
+
+.logout-button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    
+}

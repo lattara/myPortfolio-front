@@ -1,0 +1,93 @@
+<div class="container">
+    <app-title class="row" [mode]="'subtitle-dashboard'" [text]="'Projects'"></app-title>
+    
+    <form [formGroup]="formGroup" class="create-project-form col-12">
+        <div>
+            <div class="input-first-row">
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>Project name</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="name" color="accent">
+            </mat-form-field>
+            <i class="fas fa-broom" matTooltip="Clear the form" (click)="clearForm()" [matTooltipPosition]= "'above'"></i>
+            </div>
+            <div class="project-form-link-fields">
+                <mat-form-field appearance="outline" color="accent">
+                    <mat-label>Youtube link</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="youtube_link">
+                </mat-form-field>
+                <mat-form-field appearance="outline" color="accent">
+                    <mat-label>Github link</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="github_link">
+                </mat-form-field>
+            </div>
+        </div>
+        <mat-form-field appearance="outline" color="accent">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" color="accent"></textarea>
+        </mat-form-field>
+    
+        <!-- edit existing project toolbox -->
+        <div *ngIf="projectToEdit">
+            <span>Current Toolbox items: </span><br>
+        <span *ngFor="let toolboxItem of projectToEdit.toolbox; let i=index" class="toolboxItems"> {{toolboxItem.name}} <i class="fas fa-times" (click)="removeToolboxItem(projectToEdit.id, toolboxItem.id, i)"></i></span> <br>
+
+        <span>Add Toolbox Item to project</span> <br>
+            <span *ngFor="let toolboxItem of toolboxItems; let i=index" class="toolboxItems">{{toolboxItem.name}} <i class="fas fa-plus" (click)="addToolboxItem(projectToEdit.id, toolboxItem.id, toolboxItem)"></i></span> 
+        </div>
+    
+        <!-- add new project toolbox -->
+        <div *ngIf ="!projectToEdit">
+            <span class="toolbox-title">Add Toolbox Item to project</span>  <br>
+                <span *ngFor="let toolboxItem of toolboxItems; let i=index" class="toolboxItems toolbox-items-before">{{toolboxItem.name}} <i class="fas fa-plus" (click)="addToolboxItemToNewProject(toolboxItem)"></i></span> <br>
+            <span class="toolbox-title">Current Toolbox items: </span>  <br>
+        <span *ngFor="let toolboxItem of newToolBoxArr; let i=index" class="toolboxItems"> {{toolboxItem.name}} <i class="fas fa-times" (click)="removeToolboxItemFromNewProject(toolboxItem, i)"></i></span> 
+        </div>
+    </form>
+    
+    
+    <div class="form-buttons">
+        <app-button class="send-form-button" [label]="'Save as new'" [icon]="'fab fa-galactic-senate'"
+            (click)="createProject()"></app-button>
+        <app-button class="edit-form-button" [label]="'Edit existing'" [icon]="'fab fa-galactic-senate'"
+            (click)="saveEditedProject()"></app-button>
+    </div>
+    
+    
+    
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8 col-10">
+        <ng-container matColumnDef="{{col}}" *ngFor="let col of columnsToDisplay; let last = last">
+            <th mat-header-cell *matHeaderCellDef> {{col}} </th>
+            <td mat-cell *matCellDef="let element"> {{element[col]}} <i [ngClass]="{'last-child': last}" class="far fa-edit"
+                    (click)="editProject(element)"></i><i [ngClass]="{'last-child': last}" class="far fa-trash-alt"
+                    (click)="deleteProject(element)"></i></td>
+    
+        </ng-container>
+    
+        <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+        <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                <div class="element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+    
+                    <!-- project details start -->
+                    <div class="row">
+                        <div class="col-12 project-details-description">{{element.description}}</div>
+                        <div class="col-12 project-details-link"><i class="fab fa-youtube"></i>{{element.youtube_link}}
+                        </div>
+                        <div class="col-12 project-details-link"><i class="fab fa-github"></i>{{element.github_link}}</div>
+                        <div class="col-12 project-details-link" *ngFor = "let toolboxItem of element.toolbox"><i class="{{toolboxItem.sortcut}}"></i>{{toolboxItem.name}}</div>
+    
+                    </div>
+    
+                    <!--project details finish -->
+                </div>
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="element-row"
+            [class.expanded-row]="expandedElement === element"
+            (click)="expandedElement = expandedElement === element ? null : element">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+    </table>
+    </div>

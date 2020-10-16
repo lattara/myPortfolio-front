@@ -1,0 +1,26 @@
+<form [formGroup]="formGroup" class="create-project-form col-12">
+    <div class="form-group">
+        <mat-form-field appearance="outline" color="accent">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="title" color="accent" class="col-6">
+        </mat-form-field>
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>Company</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="company" class="col-6">
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>Duration</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="duration" class="col-6">
+            </mat-form-field>
+    </div>
+    <app-button class="download-button" [label]="'Save'" [icon]="'fas fa-download'" (click)="saveExperience()"></app-button>
+</form>
+
+<div class="col-12 experience">
+    <app-title class="education-title" [mode]="'subsubtitle'" [text]="'Experiences'">
+    </app-title>
+    <ul *ngFor = "let exp of experiences">
+        <li>{{exp.title}} / {{exp.company}} / {{exp.duration}} <i class="far fa-trash-alt" (click)="deleteExperience(exp.id)"></i> <i class="far fa-edit" (click)="editExperience(exp.id, exp)"></i> </li>
+        
+    </ul>
+</div>

@@ -1,0 +1,223 @@
+.container {
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+}
+.toolbox-title {
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 3;
+}
+
+.toolbox-items-before {
+    opacity: 0.5;
+}
+
+.input-first-row {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.table {
+    width: 100%;
+}
+
+.mat-table {
+    margin-left: 60px !important;
+    width: 100%;
+    margin-top: 50px;
+}
+
+tr.element-row:not(.expanded-row):hover {
+    background-color: #777 !important;
+    cursor: pointer;
+}
+
+tr.element-row:not(.expanded-row):active {
+    background-color: #efefef;
+    cursor: pointer;
+}
+
+//for borders on table
+.mat-cell,
+.mat-header-cell {
+    background-color: var(--primary-darkened);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.mat-header-cell {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.mat-header-cell:first-child {
+    border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.mat-header-cell:last-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+    text-align: right;
+}
+
+.mat-cell:first-child {
+    border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.mat-cell:last-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+// end borders on table
+
+.toolboxItems {
+    color: var(--white);
+}
+
+.fa-times,
+.fa-plus {
+    margin-right: 15px;
+}
+
+.fa-times:hover,
+.fa-plus:hover {
+    color: var(--secondary-color);
+}
+
+th {
+    color: var(--secondary-dashboard);
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+tr.detail-row {
+    height: 0;
+}
+
+table.mat-table tr:hover td {
+    color: var(--primary-darkened);
+    background-color: var(--secondary-dashboard);
+    font-weight: bold;
+}
+
+.element-row td {
+    border-bottom-width: 0;
+}
+
+.element-detail {
+    overflow: hidden;
+    display: flex;
+    height: 200px;
+}
+
+.element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+}
+
+.element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.project-details-description {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.project-details-link {
+    padding-left: 50px;
+}
+
+.fab {
+    margin-right: 10px;
+}
+
+.element-description {
+    padding: 16px;
+}
+
+.element-description-attribution {
+    opacity: 0.5;
+}
+
+.fa-trash-alt {
+    color: white;
+}
+
+.fa-trash-alt,
+.fa-edit {
+    display: none;
+}
+
+tr:hover .fa-trash-alt {
+    color: var(--secondary-color);
+}
+
+.fa-edit:hover {
+    color: blue;
+}
+
+.last-child {
+    display: inline-block;
+
+    margin-right: 10px;
+}
+
+.element-row td:last-child {
+    text-align: end !important;
+}
+
+//form
+
+.create-project-form {
+    width: 70%;
+    margin-left: 60px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mat-form-field-appearance-outline {
+    margin-right: 20px !important;
+}
+
+.project-form-link-fields {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.project-form-link-fields .mat-form-field-appearance-outline {
+    width: 100%;
+}
+
+textarea {
+    height: 150px;
+}
+
+.send-form-button {
+    display: flex;
+    align-self: flex-end;
+    margin-right: 20px;
+}
+
+textarea.mat-input-element {
+    color: var(--white);
+}
+
+input.mat-input-element {
+    color: var(--white);
+}

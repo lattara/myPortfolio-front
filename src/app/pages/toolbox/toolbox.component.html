@@ -1,0 +1,50 @@
+<div class="container justify-content-center">
+    <div class="row toolbox-container">
+
+        <app-title class="toolbox-title justify-content-center" [mode]="'subtitle'"
+            [text]="'Technologies I feel comfortable working with'"></app-title>
+        <ul class="toolboxItems-container justify-content-center col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <li *ngFor="let item of toolboxItems" class="skill-grouped"><i class="{{item.sortcut}}"></i> {{item.name}}
+                <mat-progress-bar mode="determinate" value="{{item.master_level}}"></mat-progress-bar>
+            </li>
+        </ul>
+
+        <div class="github-activity col-12">
+
+            <div class="table-container">
+                <mat-table #table [dataSource]="dataSource">
+                    <ng-container matColumnDef="EVENT TYPE">
+                        <mat-header-cell *matHeaderCellDef> EVENT TYPE </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            <span class="mobile-label">EVENT TYPE: </span>
+                            <span class="table-content">{{element.type}}</span>
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="REPOSITORY">
+                        <mat-header-cell *matHeaderCellDef> REPOSITORY </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            <span class="mobile-label">REPOSITORY: </span>
+                            <span class="table-content"> {{element.repo.name}}</span>
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="TIME">
+                        <mat-header-cell *matHeaderCellDef> TIME </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            <span class="mobile-label">TIME: </span>
+                            <span class="table-content">{{element.created_at}}</span>
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+            </div> 
+             <div class="col-12 repos-gists">
+            <span> Total repositories: {{repos}}</span><br>
+            <span> Total Gists: {{gists}}</span>
+        </div>   
+        </div>
+       
+    </div>

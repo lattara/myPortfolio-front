@@ -1,0 +1,31 @@
+<div class="container">
+    <div *ngIf="projects.length === 0">
+        <span>There is no projects to display for the moment</span>
+    </div>
+    <div *ngIf="projects.length !== 0" class="row justify-content-center">
+        <div class="col-sm-12 col-md-12 col-xl-6 project-details" *ngFor="let project of projects; let i = index">
+            <div class="content-container">
+            <ul class="number col-auto"> {{i+1}}. </ul>
+            <li class="technologies">
+                <i *ngFor="let toolboxItem of project.toolbox" class="fab {{toolboxItem.sortcut}}"></i>
+            </li>
+            <li class="project-title">
+                <app-title class="row name" [mode]="'subsubtitle'" [text]="project.name"></app-title>
+            </li>
+            <li class="project-description col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-10">{{project.description}}
+            </li>
+            <div class="buttons">
+                <a href="{{project.github_link}}">
+                    <app-button class="button" [label]="'Github'" [icon]="'fab fa-github'"></app-button>
+                </a>
+                <a href="{{project.youtube_link}}" target="_blank">
+                    <app-button class="button" [label]="'Demo'" [icon]="'fab fa-youtube'"></app-button>
+                </a>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div div class="arrow-animated col-12 justify-content-center">
+    <i routerLink="bio" class="fas fa-chevron-down"></i>
+</div>

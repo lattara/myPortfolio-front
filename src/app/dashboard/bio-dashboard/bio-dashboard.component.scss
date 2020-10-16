@@ -1,0 +1,43 @@
+
+.mat-form-field-appearance-outline{
+    margin-right: 20px !important;
+}
+
+.project-form-link-fields {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.project-form-link-fields .mat-form-field-appearance-outline {
+    width: 100%;
+}
+
+.chooseFile {
+    padding: 30px;
+}
+
+span {
+    color: var(--white);
+}
+
+.mat-form-field-appearance-outline {
+    width: 400px;
+    height: 100px;
+}
+
+
+.send-form-button {
+    display: flex;
+    align-self: flex-end;
+    margin-right: 20px;
+}
+
+textarea.mat-input-element {
+    color: var(--white);
+}
+
+input.mat-input-element {
+    color: var(--white);
+}
+

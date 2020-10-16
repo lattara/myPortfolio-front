@@ -1,0 +1,24 @@
+<div class="container-button">
+    <div *ngIf="checkButtonType(icon, imageName); then thenBlock else elseBlock"></div>
+
+    <ng-template #thenBlock>
+        <button [disabled]="disabled"
+                (click)="onClick()"
+                class="btn btn-primary action-button">
+            <i class="{{icon}}"></i>{{label}}
+        </button>
+    </ng-template>
+
+    <ng-template #elseBlock>
+        <button [disabled]="disabled"
+                (click)="onClick()"
+                class="btn btn-primary action-button">
+            <div *ngIf="imageName!==undefined">
+                {{label}}
+            </div>
+            <div *ngIf="imageName===undefined">
+                {{label}}
+            </div>
+        </button>
+    </ng-template>
+</div>

@@ -1,0 +1,29 @@
+<div class="container row">
+
+    <app-title class="row" [mode]="'subtitle-dashboard'" [text]="'Bio'"></app-title>
+
+    <form class="form col-12" [formGroup]="modifyBioForm" (ngSubmit)="submitModifyBio()">
+        <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Intro </mat-label>
+            <textarea matInput placeholder="Placeholder" formControlName="intro"></textarea>
+        </mat-form-field>
+        </div>
+        <!-- CV modify -->
+        <span>Choose CV:</span>
+            <input enctype="multipart/form-data" type="file" name="cvLink" (change)="onFileModify($event)" class="chooseFile col-12">
+        <!-- Profile photo modify -->
+        <span>Choose profile-photo:</span>
+            <input enctype="multipart/form-data" type="file" name="cvLink" (change)="onPhotoModify($event)" class="chooseFile col-12">    
+
+
+        <div class="actions">
+            <app-button type="submit" class="send-form-button" [label]="'Save details'" [icon]="'fab fa-galactic-senate'"
+                ></app-button>
+        </div>
+    </form>
+
+
+
+
+</div>

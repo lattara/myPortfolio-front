@@ -1,0 +1,121 @@
+.row {
+    margin:0px;
+    padding: 0px;
+    height: 100vh;
+}
+
+.container-fluid {
+    height: 100vh;
+    width: 100%;
+}
+
+.landing-title-group {
+    padding-top: 10rem;
+    align-items: center;
+}
+
+.vertical-divider-red {
+    height: 24rem;
+    border-left: 4px solid var(--secondary-color);
+    padding: 20px;
+}
+
+.featured-text {
+    line-height: 25px;
+    min-width: 200px;
+}
+
+.landing-icons {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+}
+
+//code icon
+.landing-icons i:nth-child(1) {
+    font-size: 40px;
+}
+
+//headphones icon
+
+.landing-icons i:nth-child(2) {
+    margin-right: 15px;
+}
+
+//angular icon
+.landing-icons i:nth-child(3) {
+    margin-right: 13px;
+    font-size: 47px;
+}
+
+//beer icon
+.landing-icons i:nth-child(4) {
+    margin-right: 12px;
+    font-size: 43px;
+}
+
+//terminal icon
+.landing-icons i:nth-child(6) {
+    margin-right: 12px;
+    font-size: 35px;
+}
+
+i {
+    font-size: 3em;
+    margin-bottom: 14px;
+    margin-right: 10px;
+}
+.red {
+    color: red;
+}
+
+p {
+    color: white;
+    font-size: 12px;
+}
+
+@media (max-width: 700px) {
+
+    .landing-title-group {
+        margin-top: 5vh;
+        padding: 0px;
+    }
+    .landing-icons * {
+        font-size: 2em !important;
+        text-align:start;
+        margin-bottom: 14px;
+        margin-right: 10px;
+        line-height: 40px;
+    }
+
+    .landing-icons {
+        align-items: flex-end;
+    }
+
+    .lading-icons i {
+        margin-right: 0px !important;
+    }
+
+    .featured-text {
+        font-size: 15px;
+        padding-right: 20px;
+    }
+
+    .vertical-divider-red {
+        border-left: 3px solid var(--secondary-color);
+        padding-top: 0px;
+        height: 30rem;
+    }
+
+    .container-buttons {
+        width: 200px;
+        padding-top: 20px;
+    }
+
+    .arrow-animated {
+        margin-top: 8rem;
+        margin-right: 0px;
+    }
+}

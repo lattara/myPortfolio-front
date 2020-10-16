@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="sidebar col-2">
+    
+    <i class="fas fa-cogs"></i>
+    <app-title class="col-12" [mode]="'title-dashboard'" [text]="'Dashboard'"></app-title>
+    <ul *ngFor="let item of dashboardMenuItems">
+      <li routerLink="{{item.path}}">{{item.caption}}</li>
+    </ul>
+    <app-button class="logout-button" [label]="'log out'" [icon]="'fas fa-sign-out-alt'" (click)="logout()"></app-button>
+    </div>
+  <div class="col-10 offset-2 router-outlet-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

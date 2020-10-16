@@ -1,0 +1,14 @@
+@import "../../../custom-styles.scss";
+
+*{
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.fa-heart{
+    color: var(--secondary-color);
+}
+
+.social i {
+    font-size: 2em;
+}

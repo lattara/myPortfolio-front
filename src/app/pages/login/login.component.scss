@@ -1,0 +1,34 @@
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-form-container {
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.title-login {
+    margin-top: 100px;
+}
+
+.form-frame {
+    border: 1px solid white;
+    padding: 50px 50px 50px 50px;
+    max-width: 550px;
+}
+
+.login-button {
+    float: right;
+}
+
+.already-acc {
+    text-align: right;
+    color: var(--white);
+}
+
+input.mat-input-element {
+    color: var(--white);
+}

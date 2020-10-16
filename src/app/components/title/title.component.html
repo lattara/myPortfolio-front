@@ -1,0 +1,12 @@
+<ng-container [ngSwitch]="mode">
+    <h1 class="title" *ngSwitchCase="'title'"> {{text}} </h1>
+    <h2 class="subtitle" *ngSwitchCase="'subtitle'"> {{text}} </h2>
+    <h2 class="section-subtitle" *ngSwitchCase="'section-subtitle'"> {{text}} </h2>
+    <h2 class="subtitle-float-right" *ngSwitchCase="'subtitle-float-right'"> {{text}} </h2>
+    <h2 class="subtitle-bio" *ngSwitchCase="'subtitle-bio'"> {{text}} </h2>
+    <h2 class="title-dashboard" *ngSwitchCase="'title-dashboard'"> {{text}} </h2>
+    <h2 class="subtitle-dashboard" *ngSwitchCase="'subtitle-dashboard'"> {{text}} </h2>
+    <h3 class="subsubtitle" *ngSwitchCase="'subsubtitle'"> {{text}} </h3>
+    <p class="text" *ngSwitchCase="'text'"> {{text}} </p>
+</ng-container>
+

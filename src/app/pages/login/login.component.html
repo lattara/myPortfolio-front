@@ -1,0 +1,22 @@
+<div class="container">
+    <app-title class="row title-login" [mode]="'subtitle'" [text]="'login'"></app-title>
+        <div class="row login-form-container">
+            <div class="form-frame">
+            <mat-form [formGroup]="loginUserData">
+        <mat-form-field class="col-12" appearance="outline">
+                        <mat-label>Identifiant</mat-label>
+                        <input formControlName="identifiant" matInput color="accent">
+                        
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="col-12" appearance="outline" color="accent">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" formControlName="password" color="accent">
+                    </mat-form-field>
+        </mat-form>
+        <app-button class="login-button" [label]="'login'" [icon]="'far fa-envelope'" (click)="loginUser()"></app-button>
+        </div>
+    </div>
+    <app-button class="go-home-button" [label]="'Go home'" [icon]="'far fa-envelope'" routerLink="/"></app-button>
+</div>
+
