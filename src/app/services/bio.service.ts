@@ -15,7 +15,7 @@ export class BioService {
     }
 
     getBio(): Observable<any> {
-        return from(this.http.get('http://localhost:3000/api/bio'));
+        return from(this.http.get('http://188.166.59.10:3000/api/bio'));
     }
 
     putBio(bio: Bio, id: number): Observable<any> {

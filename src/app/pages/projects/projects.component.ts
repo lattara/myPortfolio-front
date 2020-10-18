@@ -28,8 +28,8 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
 
   public getAllProjectsWithToolbox() {
     for (let i = 1; i < 8; i++) {
-      const $project = this.http.get(`http://localhost:3000/api/projects/${i}`);
-      const $toolbox = this.http.get(`http://localhost:3000/api/toolbox/${i}`);
+      const $project = this.http.get(`http://188.166.59.10:3000/api/projects/${i}`);
+      const $toolbox = this.http.get(`http://188.166.59.10:3000/api/toolbox/${i}`);
       forkJoin([$project, $toolbox]).subscribe(results => {
         this.project = results[0];
         if (Object.keys(this.project).length === 0) {
