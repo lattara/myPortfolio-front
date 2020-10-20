@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class GitHubService {
 
   private baseUrl = 'https://api.github.com/users/lattara';
-  private acsUrl = 'http://localhost:3000/api/tkn';
+  private acsUrl = 'http://188.166.59.10:3000/api/tkn';
 
 
   constructor(private http: HttpClient, private router: Router) { }

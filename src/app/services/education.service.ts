@@ -9,7 +9,7 @@ import { Education } from '../models/education';
 })
 export class EducationService {
 
-    private baseUrl = 'http://localhost:3000/api/education';
+    private baseUrl = 'http://188.166.59.10:3000/api/education';
 
     constructor(private http: HttpClient, private router: Router) {
     }

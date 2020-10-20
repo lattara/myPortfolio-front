@@ -17,7 +17,7 @@ export class ProjectsService {
   }
 
   getlastId(): Observable<any> {
-    return from(this.http.get('http://localhost:3000/api/projects/lastId'));
+    return from(this.http.get('http://188.166.59.10:3000/api/projects/lastId'));
   }
 
   getProjects(): Observable<any> {

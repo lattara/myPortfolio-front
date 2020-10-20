@@ -48,7 +48,7 @@ export class BioDashboardComponent implements OnInit {
     for (const file of this.filesToUpload) {
       formDataSubmit.append('uploadedFiles', file, file.name);
     }
-    this.http.post<any>('http://localhost:3000/bio/upload', formDataSubmit).subscribe(
+    this.http.post<any>('http://188.166.59.10:3000/api/bio/upload', formDataSubmit).subscribe(
       res => {
         this.bioToModify.intro = this.modifyBioForm.value.intro;
         this.bioToModify.cvLink = res.data.CVname;

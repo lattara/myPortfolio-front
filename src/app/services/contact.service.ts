@@ -12,7 +12,7 @@ export class ContactService {
     constructor(private http: HttpClient) { }
 
     sendMail(name, email, phone, message) {
-        const url = 'http://localhost:3000/api/contact/send';
+        const url = 'http://188.166.59.10:3000/api/contact/send';
         const emailData = {
             name,
             email,
