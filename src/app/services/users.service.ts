@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, from } from 'rxjs';
 import { User } from '../models/user.model';
 import { Router } from '@angular/router';
+import { GitHubService } from './git-hub.service';
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,7 @@ export class UsersService {
 
     private baseUrl = 'http://188.166.59.10:3000/api/auth';
 
-    constructor(private http: HttpClient, private router: Router) {
+    constructor(private http: HttpClient, private router: Router, private githubService: GitHubService) {
     }
 
     registerUser(user: User) {
@@ -23,8 +24,8 @@ export class UsersService {
         const loginURL = `${this.baseUrl}/login`;
         this.getCurrentUser(user).subscribe(result => {
             localStorage.setItem('user', JSON.stringify(result));
-            const userStoraged: User =  JSON.parse(localStorage.getItem('user'));
-        })
+            const userStoraged: User = JSON.parse(localStorage.getItem('user'));
+        });
         localStorage.setItem('user', JSON.stringify(user));
         return this.http.post(loginURL, user);
     }
@@ -44,7 +45,15 @@ export class UsersService {
 
     logout() {
         localStorage.removeItem('token');
+        this.getGitToken();
         this.router.navigateByUrl('');
     }
 
+    getGitToken() {
+        this.githubService.getAccess().subscribe(resp => {
+            const extractTKN: any = Object.values(resp);
+            localStorage.setItem('token', extractTKN);
+        });
+        this.githubService.getAccess()
+    }
 }

@@ -16,7 +16,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.githubService.getAccess().subscribe(resp => {
-      const extractTKN: any = Object.values(resp)[0];
+      const extractTKN: any = Object.values(resp);
       localStorage.setItem('token', extractTKN);
       this.router.navigateByUrl('');
     });

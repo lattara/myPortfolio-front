@@ -228,7 +228,6 @@ class BioComponent {
     }
     getBio() {
         this.bioService.getBio().subscribe(data => {
-            console.log('getbio', data);
             this.intro = (data[0].intro);
             this.cvLink = (data[0].cv_link);
             this.imageLink = (data[0].image_link);
@@ -236,18 +235,15 @@ class BioComponent {
     }
     getEducations() {
         this.educationService.getEducations().subscribe(data => {
-            console.log(data);
             this.education = data;
         });
     }
     getExperiences() {
         this.experienceService.getExperiences().subscribe(data => {
-            console.log(data);
             this.experience = data;
         });
     }
     downloadCV() {
-        console.log('download cv');
     }
 }
 BioComponent.ɵfac = function BioComponent_Factory(t) { return new (t || BioComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_bio_service__WEBPACK_IMPORTED_MODULE_1__["BioService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_education_service__WEBPACK_IMPORTED_MODULE_2__["EducationService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_experience_service__WEBPACK_IMPORTED_MODULE_3__["ExperienceService"])); };
@@ -623,7 +619,6 @@ class UsersService {
         this.getCurrentUser(user).subscribe(result => {
             localStorage.setItem('user', JSON.stringify(result));
             const userStoraged = JSON.parse(localStorage.getItem('user'));
-            console.log('from local storedge', userStoraged);
         });
         localStorage.setItem('user', JSON.stringify(user));
         return this.http.post(loginURL, user);
@@ -1267,9 +1262,7 @@ class ToolboxItemService {
         this.baseUrl = 'http://188.166.59.10:3000/api';
     }
     putToolboxItem(toolboxItem, id) {
-        console.log(toolboxItem);
         const putProjectsURL = `${this.baseUrl}/toolboxItem/${id}`;
-        console.log(putProjectsURL);
         return this.http.put(putProjectsURL, toolboxItem);
     }
     postToolboxItem(toolboxItem) {
@@ -2446,7 +2439,6 @@ class BioService {
     }
     putBio(bio, id) {
         const putBioURL = `${this.baseUrl}/bio/`;
-        console.log(putBioURL);
         return this.http.put(putBioURL, bio);
     }
     postBio(bio) {
@@ -2574,7 +2566,6 @@ class ProjectsComponent {
     }
     ngAfterViewInit() {
         this.getAllProjectsWithToolbox();
-        console.log('this projects are', this.projects);
     }
     getAllProjectsWithToolbox() {
         for (let i = 1; i < 8; i++) {
@@ -2915,7 +2906,6 @@ class ProjectsDashboardComponent {
             this.newProject.id = resp.id;
             this.getAllProjectsWithToolbox();
             this.newToolBoxArr.forEach(toolboxItem => {
-                console.log(toolboxItem.id);
                 this.toolboxService.postToolboxItem(this.newProject.id, toolboxItem.id).subscribe(() => console.log('success!'));
             });
         });

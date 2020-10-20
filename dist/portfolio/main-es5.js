@@ -499,7 +499,6 @@
             var _this2 = this;
 
             this.bioService.getBio().subscribe(function (data) {
-              console.log('getbio', data);
               _this2.intro = data[0].intro;
               _this2.cvLink = data[0].cv_link;
               _this2.imageLink = data[0].image_link;
@@ -511,7 +510,6 @@
             var _this3 = this;
 
             this.educationService.getEducations().subscribe(function (data) {
-              console.log(data);
               _this3.education = data;
             });
           }
@@ -521,15 +519,12 @@
             var _this4 = this;
 
             this.experienceService.getExperiences().subscribe(function (data) {
-              console.log(data);
               _this4.experience = data;
             });
           }
         }, {
           key: "downloadCV",
-          value: function downloadCV() {
-            console.log('download cv');
-          }
+          value: function downloadCV() {}
         }]);
 
         return BioComponent;
@@ -1332,7 +1327,6 @@
             this.getCurrentUser(user).subscribe(function (result) {
               localStorage.setItem('user', JSON.stringify(result));
               var userStoraged = JSON.parse(localStorage.getItem('user'));
-              console.log('from local storedge', userStoraged);
             });
             localStorage.setItem('user', JSON.stringify(user));
             return this.http.post(loginURL, user);
@@ -2648,9 +2642,7 @@
         _createClass(ToolboxItemService, [{
           key: "putToolboxItem",
           value: function putToolboxItem(toolboxItem, id) {
-            console.log(toolboxItem);
             var putProjectsURL = "".concat(this.baseUrl, "/toolboxItem/").concat(id);
-            console.log(putProjectsURL);
             return this.http.put(putProjectsURL, toolboxItem);
           }
         }, {
@@ -4979,7 +4971,6 @@
           key: "putBio",
           value: function putBio(bio, id) {
             var putBioURL = "".concat(this.baseUrl, "/bio/");
-            console.log(putBioURL);
             return this.http.put(putBioURL, bio);
           }
         }, {
@@ -5245,7 +5236,6 @@
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
             this.getAllProjectsWithToolbox();
-            console.log('this projects are', this.projects);
           }
         }, {
           key: "getAllProjectsWithToolbox",
@@ -5986,8 +5976,6 @@
               _this16.getAllProjectsWithToolbox();
 
               _this16.newToolBoxArr.forEach(function (toolboxItem) {
-                console.log(toolboxItem.id);
-
                 _this16.toolboxService.postToolboxItem(_this16.newProject.id, toolboxItem.id).subscribe(function () {
                   return console.log('success!');
                 });
