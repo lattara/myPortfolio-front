@@ -8,7 +8,8 @@
                 <mat-progress-bar mode="determinate" value="{{item.master_level}}"></mat-progress-bar>
             </li>
         </ul>
-
+        <app-title class="toolbox-title justify-content-center" [mode]="'subtitle'"
+            [text]="'Recent GitHub activity'"></app-title>
         <div class="github-activity col-12">
 
             <div class="table-container">
@@ -36,7 +37,7 @@
                             <span class="table-content">{{element.created_at}}</span>
                         </mat-cell>
                     </ng-container>
-
+                    <app-title [mode]="'section-subtitle'" [text]="'Recent GitHub activity'"></app-title>
                     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
                 </mat-table>

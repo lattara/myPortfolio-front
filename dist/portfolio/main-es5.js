@@ -247,7 +247,7 @@
             var _this = this;
 
             this.githubService.getAccess().subscribe(function (resp) {
-              var extractTKN = Object.values(resp)[0];
+              var extractTKN = Object.values(resp);
               localStorage.setItem('token', extractTKN);
 
               _this.router.navigateByUrl('');
@@ -1304,13 +1304,20 @@
       var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @angular/router */
       "tyNb");
+      /* harmony import */
+
+
+      var _git_hub_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ./git-hub.service */
+      "/mUe");
 
       var UsersService = /*#__PURE__*/function () {
-        function UsersService(http, router) {
+        function UsersService(http, router, githubService) {
           _classCallCheck(this, UsersService);
 
           this.http = http;
           this.router = router;
+          this.githubService = githubService;
           this.baseUrl = 'http://188.166.59.10:3000/api/auth';
         }
 
@@ -1351,7 +1358,17 @@
           key: "logout",
           value: function logout() {
             localStorage.removeItem('token');
+            this.getGitToken();
             this.router.navigateByUrl('');
+          }
+        }, {
+          key: "getGitToken",
+          value: function getGitToken() {
+            this.githubService.getAccess().subscribe(function (resp) {
+              var extractTKN = Object.values(resp);
+              localStorage.setItem('token', extractTKN);
+            });
+            this.githubService.getAccess();
           }
         }]);
 
@@ -1359,7 +1376,7 @@
       }();
 
       UsersService.ɵfac = function UsersService_Factory(t) {
-        return new (t || UsersService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]));
+        return new (t || UsersService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_git_hub_service__WEBPACK_IMPORTED_MODULE_3__["GitHubService"]));
       };
 
       UsersService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
@@ -1380,6 +1397,8 @@
             type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]
           }, {
             type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+          }, {
+            type: _git_hub_service__WEBPACK_IMPORTED_MODULE_3__["GitHubService"]
           }];
         }, null);
       })();
@@ -3446,25 +3465,31 @@
       /* harmony import */
 
 
-      var _components_title_title_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_services_git_hub_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/services/git-hub.service */
+      "/mUe");
+      /* harmony import */
+
+
+      var _components_title_title_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ../../components/title/title.component */
       "bwXy");
       /* harmony import */
 
 
-      var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/common */
       "ofXK");
       /* harmony import */
 
 
-      var _components_button_button_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_button_button_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ../../components/button/button.component */
       "7psr");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @angular/router */
       "tyNb");
 
@@ -3495,10 +3520,11 @@
       }
 
       var AdminDashboardComponent = /*#__PURE__*/function () {
-        function AdminDashboardComponent(usersService) {
+        function AdminDashboardComponent(usersService, githubService) {
           _classCallCheck(this, AdminDashboardComponent);
 
           this.usersService = usersService;
+          this.githubService = githubService;
           this.dashboardMenuItems = _dashboard_menu_items__WEBPACK_IMPORTED_MODULE_1__["dashboardMenuItems"];
         }
 
@@ -3516,7 +3542,7 @@
       }();
 
       AdminDashboardComponent.ɵfac = function AdminDashboardComponent_Factory(t) {
-        return new (t || AdminDashboardComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_users_service__WEBPACK_IMPORTED_MODULE_2__["UsersService"]));
+        return new (t || AdminDashboardComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_users_service__WEBPACK_IMPORTED_MODULE_2__["UsersService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_git_hub_service__WEBPACK_IMPORTED_MODULE_3__["GitHubService"]));
       };
 
       AdminDashboardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
@@ -3570,7 +3596,7 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("label", "log out")("icon", "fas fa-sign-out-alt");
           }
         },
-        directives: [_components_title_title_component__WEBPACK_IMPORTED_MODULE_3__["TitleComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _components_button_button_component__WEBPACK_IMPORTED_MODULE_5__["ButtonComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterOutlet"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterLink"]],
+        directives: [_components_title_title_component__WEBPACK_IMPORTED_MODULE_4__["TitleComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"], _components_button_button_component__WEBPACK_IMPORTED_MODULE_6__["ButtonComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterOutlet"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterLink"]],
         styles: [".container[_ngcontent-%COMP%] {\n  height: 120vh;\n  width: 80vw;\n  margin-left: 300px !important;\n  margin-right: 100px !important;\n  overflow: scroll;\n}\n\n.sidebar[_ngcontent-%COMP%] {\n  height: 100vh;\n  width: 100%;\n  position: absolute;\n  top: 0px;\n  left: 0px;\n  background-color: var(--secondary-dashboard);\n}\n\n.fa-cogs[_ngcontent-%COMP%] {\n  margin-top: 20px;\n  margin-left: 20px;\n  font-size: 40px;\n  color: #0a041f;\n}\n\nul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  text-transform: uppercase;\n  margin-top: 20px;\n  margin-left: 35px;\n  font-weight: bolder;\n  color: var(--primary-darkened);\n  cursor: pointer;\n}\n\nul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:focus {\n  outline: none !important;\n}\n\n.router-outlet-container[_ngcontent-%COMP%] {\n  position: relative;\n  height: 100vh;\n  overflow: scroll;\n}\n\n.logout-button[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-evenly;\n  align-items: flex-end;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGFzaGJvYXJkL2FkbWluLWRhc2hib2FyZC9hZG1pbi1kYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxhQUFBO0VBQ0EsV0FBQTtFQUNBLDZCQUFBO0VBQ0EsOEJBQUE7RUFDQSxnQkFBQTtBQUNKOztBQUVBO0VBQ0ksYUFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBQ0EsNENBQUE7QUFDSjs7QUFFQTtFQUNJLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxlQUFBO0VBQ0EsY0FBQTtBQUNKOztBQUVBO0VBQ0kseUJBQUE7RUFDQSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0EsbUJBQUE7RUFDQSw4QkFBQTtFQUNBLGVBQUE7QUFDSjs7QUFFQTtFQUNJLHdCQUFBO0FBQ0o7O0FBSUE7RUFDSSxrQkFBQTtFQUNBLGFBQUE7RUFDQSxnQkFBQTtBQURKOztBQUtBO0VBQ0ksYUFBQTtFQUNBLDZCQUFBO0VBQ0EscUJBQUE7QUFGSiIsImZpbGUiOiJzcmMvYXBwL2Rhc2hib2FyZC9hZG1pbi1kYXNoYm9hcmQvYWRtaW4tZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5lciB7XG4gICAgaGVpZ2h0OiAxMjB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBtYXJnaW4tbGVmdDogMzAwcHggIWltcG9ydGFudDtcbiAgICBtYXJnaW4tcmlnaHQ6IDEwMHB4ICFpbXBvcnRhbnQ7XG4gICAgb3ZlcmZsb3c6IHNjcm9sbDtcbn1cblxuLnNpZGViYXIge1xuICAgIGhlaWdodDogMTAwdmg7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMHB4O1xuICAgIGxlZnQ6IDBweDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnktZGFzaGJvYXJkKTtcbn1cblxuLmZhLWNvZ3Mge1xuICAgIG1hcmdpbi10b3A6IDIwcHg7XG4gICAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gICAgZm9udC1zaXplOiA0MHB4O1xuICAgIGNvbG9yOiAjMGEwNDFmO1xufVxuXG51bCBsaSB7XG4gICAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbiAgICBtYXJnaW4tdG9wOiAyMHB4O1xuICAgIG1hcmdpbi1sZWZ0OiAzNXB4O1xuICAgIGZvbnQtd2VpZ2h0OiBib2xkZXI7XG4gICAgY29sb3I6dmFyKC0tcHJpbWFyeS1kYXJrZW5lZCk7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG51bCBsaTpmb2N1cyB7XG4gICAgb3V0bGluZTogbm9uZSAhaW1wb3J0YW50O1xufVxuXG5cblxuLnJvdXRlci1vdXRsZXQtY29udGFpbmVyIHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgaGVpZ2h0OiAxMDB2aDtcbiAgICBvdmVyZmxvdzogc2Nyb2xsO1xufVxuXG5cbi5sb2dvdXQtYnV0dG9uIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtZXZlbmx5O1xuICAgIGFsaWduLWl0ZW1zOiBmbGV4LWVuZDtcbiAgICBcbn0iXX0= */"]
       });
       /*@__PURE__*/
@@ -3586,6 +3612,8 @@
         }], function () {
           return [{
             type: src_app_services_users_service__WEBPACK_IMPORTED_MODULE_2__["UsersService"]
+          }, {
+            type: src_app_services_git_hub_service__WEBPACK_IMPORTED_MODULE_3__["GitHubService"]
           }];
         }, null);
       })();
