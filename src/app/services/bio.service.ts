@@ -20,7 +20,6 @@ export class BioService {
 
     putBio(bio: Bio, id: number): Observable<any> {
         const putBioURL = `${this.baseUrl}/bio/`;
-        console.log(putBioURL);
         return this.http.put(putBioURL, bio);
     }
 

@@ -88,7 +88,6 @@ export class ProjectsDashboardComponent implements OnInit {
       this.newProject.id = resp.id;
       this.getAllProjectsWithToolbox();
       this.newToolBoxArr.forEach(toolboxItem => {
-        console.log(toolboxItem.id);
         this.toolboxService.postToolboxItem(this.newProject.id, toolboxItem.id).subscribe(() => console.log('success!'));
       });
     }

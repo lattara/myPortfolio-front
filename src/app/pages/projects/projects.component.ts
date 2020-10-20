@@ -23,7 +23,6 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.getAllProjectsWithToolbox();
-    console.log('this projects are', this.projects);
   }
 
   public getAllProjectsWithToolbox() {

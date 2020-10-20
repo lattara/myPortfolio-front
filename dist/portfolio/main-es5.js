@@ -100,7 +100,7 @@
           this.http = http;
           this.router = router;
           this.baseUrl = 'https://api.github.com/users/lattara';
-          this.acsUrl = 'http://localhost:3000/api/tkn';
+          this.acsUrl = 'http://188.166.59.10:3000/api/tkn';
         }
 
         _createClass(GitHubService, [{
@@ -727,7 +727,7 @@
 
           this.http = http;
           this.router = router;
-          this.baseUrl = 'http://localhost:3000/api';
+          this.baseUrl = 'http://188.166.59.10:3000/api';
         }
 
         _createClass(ToolboxService, [{
@@ -1229,7 +1229,7 @@
         _createClass(ContactService, [{
           key: "sendMail",
           value: function sendMail(name, email, phone, message) {
-            var url = 'http://localhost:3000/api/contact/send';
+            var url = 'http://188.166.59.10:3000/api/contact/send';
             var emailData = {
               name: name,
               email: email,
@@ -1316,7 +1316,7 @@
 
           this.http = http;
           this.router = router;
-          this.baseUrl = 'http://localhost:3000/api/auth';
+          this.baseUrl = 'http://188.166.59.10:3000/api/auth';
         }
 
         _createClass(UsersService, [{
@@ -1681,7 +1681,7 @@
 
           this.http = http;
           this.router = router;
-          this.baseUrl = 'http://localhost:3000/api/education';
+          this.baseUrl = 'http://188.166.59.10:3000/api/education';
         }
 
         _createClass(EducationService, [{
@@ -2312,7 +2312,7 @@
         _createClass(ProjectsService, [{
           key: "getlastId",
           value: function getlastId() {
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["from"])(this.http.get('http://localhost:3000/api/projects/lastId'));
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["from"])(this.http.get('http://188.166.59.10:3000/api/projects/lastId'));
           }
         }, {
           key: "getProjects",
@@ -2642,7 +2642,7 @@
 
           this.http = http;
           this.router = router;
-          this.baseUrl = 'http://localhost:3000/api';
+          this.baseUrl = 'http://188.166.59.10:3000/api';
         }
 
         _createClass(ToolboxItemService, [{
@@ -2853,7 +2853,7 @@
               _iterator.f();
             }
 
-            this.http.post('http://localhost:3000/bio/upload', formDataSubmit).subscribe(function (res) {
+            this.http.post('http://188.166.59.10:3000/api/bio/upload', formDataSubmit).subscribe(function (res) {
               _this11.bioToModify.intro = _this11.modifyBioForm.value.intro;
               _this11.bioToModify.cvLink = res.data.CVname;
               _this11.bioToModify.profileImgLink = res.data.imgName;
@@ -3030,7 +3030,7 @@
 
           this.http = http;
           this.router = router;
-          this.baseUrl = 'http://localhost:3000/api/experience';
+          this.baseUrl = 'http://188.166.59.10:3000/api/experience';
         }
 
         _createClass(ExperienceService, [{
@@ -4967,7 +4967,7 @@
 
           this.http = http;
           this.router = router;
-          this.baseUrl = 'http://localhost:3000';
+          this.baseUrl = 'http://188.166.59.10:3000/api';
         }
 
         _createClass(BioService, [{

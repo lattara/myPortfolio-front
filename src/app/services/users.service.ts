@@ -24,7 +24,6 @@ export class UsersService {
         this.getCurrentUser(user).subscribe(result => {
             localStorage.setItem('user', JSON.stringify(result));
             const userStoraged: User =  JSON.parse(localStorage.getItem('user'));
-            console.log('from local storedge', userStoraged);
         })
         localStorage.setItem('user', JSON.stringify(user));
         return this.http.post(loginURL, user);

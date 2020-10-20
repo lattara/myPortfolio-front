@@ -41,7 +41,7 @@ class GitHubService {
         this.http = http;
         this.router = router;
         this.baseUrl = 'https://api.github.com/users/lattara';
-        this.acsUrl = 'http://localhost:3000/api/tkn';
+        this.acsUrl = 'http://188.166.59.10:3000/api/tkn';
     }
     getEvents() {
         return this.http.get(`${this.baseUrl}/events`);
@@ -339,7 +339,7 @@ class ToolboxService {
     constructor(http, router) {
         this.http = http;
         this.router = router;
-        this.baseUrl = 'http://localhost:3000/api';
+        this.baseUrl = 'http://188.166.59.10:3000/api';
     }
     getToolboxItems() {
         return this.http.get(`${this.baseUrl}/toolboxItem`);
@@ -569,7 +569,7 @@ class ContactService {
         this.http = http;
     }
     sendMail(name, email, phone, message) {
-        const url = 'http://localhost:3000/api/contact/send';
+        const url = 'http://188.166.59.10:3000/api/contact/send';
         const emailData = {
             name,
             email,
@@ -612,7 +612,7 @@ class UsersService {
     constructor(http, router) {
         this.http = http;
         this.router = router;
-        this.baseUrl = 'http://localhost:3000/api/auth';
+        this.baseUrl = 'http://188.166.59.10:3000/api/auth';
     }
     registerUser(user) {
         const registerURL = `${this.baseUrl}/register`;
@@ -791,7 +791,7 @@ class EducationService {
     constructor(http, router) {
         this.http = http;
         this.router = router;
-        this.baseUrl = 'http://localhost:3000/api/education';
+        this.baseUrl = 'http://188.166.59.10:3000/api/education';
     }
     getEducations() {
         return this.http.get(`${this.baseUrl}`);
@@ -1107,7 +1107,7 @@ class ProjectsService {
         this.baseUrl = 'http://188.166.59.10:3000/api';
     }
     getlastId() {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["from"])(this.http.get('http://localhost:3000/api/projects/lastId'));
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["from"])(this.http.get('http://188.166.59.10:3000/api/projects/lastId'));
     }
     getProjects() {
         return this.http.get(`${this.baseUrl}/projects`);
@@ -1264,7 +1264,7 @@ class ToolboxItemService {
     constructor(http, router) {
         this.http = http;
         this.router = router;
-        this.baseUrl = 'http://localhost:3000/api';
+        this.baseUrl = 'http://188.166.59.10:3000/api';
     }
     putToolboxItem(toolboxItem, id) {
         console.log(toolboxItem);
@@ -1365,7 +1365,7 @@ class BioDashboardComponent {
         for (const file of this.filesToUpload) {
             formDataSubmit.append('uploadedFiles', file, file.name);
         }
-        this.http.post('http://localhost:3000/bio/upload', formDataSubmit).subscribe(res => {
+        this.http.post('http://188.166.59.10:3000/api/bio/upload', formDataSubmit).subscribe(res => {
             this.bioToModify.intro = this.modifyBioForm.value.intro;
             this.bioToModify.cvLink = res.data.CVname;
             this.bioToModify.profileImgLink = res.data.imgName;
@@ -1447,7 +1447,7 @@ class ExperienceService {
     constructor(http, router) {
         this.http = http;
         this.router = router;
-        this.baseUrl = 'http://localhost:3000/api/experience';
+        this.baseUrl = 'http://188.166.59.10:3000/api/experience';
     }
     getExperiences() {
         return this.http.get(`${this.baseUrl}`);
@@ -2439,7 +2439,7 @@ class BioService {
     constructor(http, router) {
         this.http = http;
         this.router = router;
-        this.baseUrl = 'http://localhost:3000';
+        this.baseUrl = 'http://188.166.59.10:3000/api';
     }
     getBio() {
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["from"])(this.http.get('http://188.166.59.10:3000/api/bio'));

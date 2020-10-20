@@ -16,9 +16,7 @@ export class ToolboxItemService {
   }
 
   putToolboxItem(toolboxItem: ToolboxItem, id: number): Observable<any> {
-    console.log(toolboxItem);
     const putProjectsURL = `${this.baseUrl}/toolboxItem/${id}`;
-    console.log(putProjectsURL);
     return this.http.put(putProjectsURL, toolboxItem);
   }
 

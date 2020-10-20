@@ -29,7 +29,6 @@ export class BioComponent implements OnInit {
 
   getBio() {
     this.bioService.getBio().subscribe(data => {
-      console.log('getbio', data);
       this.intro = (data[0].intro);
       this.cvLink = (data[0].cv_link);
       this.imageLink = (data[0].image_link);
@@ -39,19 +38,17 @@ export class BioComponent implements OnInit {
 
   getEducations() {
     this.educationService.getEducations().subscribe(data => {
-      console.log(data);
       this.education = data;
     });
   }
 
   getExperiences() {
     this.experienceService.getExperiences().subscribe(data => {
-      console.log(data);
       this.experience = data;
     });
   }
 
   downloadCV() {
-    console.log('download cv');
+
   }
 }
