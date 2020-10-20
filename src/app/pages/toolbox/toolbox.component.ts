@@ -21,6 +21,7 @@ export class ToolboxComponent implements OnInit {
   dataSource = new MatTableDataSource<any>(this.githubEvents);
 
   ngOnInit(): void {
+    this.getTkn();
     this.toolboxitemService.getToolboxItems().subscribe(
       response => {
         this.toolboxItems = response;
@@ -43,6 +44,14 @@ export class ToolboxComponent implements OnInit {
         this.gists = profile['public_gists'];
       }
     );
+  }
+
+  getTkn() {
+    this.githubService.getAccess().subscribe(resp => {
+      const extractTKN: any = Object.values(resp);
+      localStorage.setItem('token', extractTKN);
+      this.router.navigateByUrl('');
+    });
   }
 }
 
