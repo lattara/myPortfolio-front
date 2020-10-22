@@ -30,6 +30,7 @@ export class ToolboxComponent implements OnInit {
 
     this.githubService.getEvents().subscribe(
       response => {
+        this.getTkn();
         this.githubEvents = response;
         this.dataSource.data = response.slice(0, 5);
       }

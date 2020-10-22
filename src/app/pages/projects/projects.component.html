@@ -7,7 +7,7 @@
             <div class="content-container">
             <ul class="number col-auto"> {{i+1}}. </ul>
             <li class="technologies">
-                <i *ngFor="let toolboxItem of project.toolbox" class="fab {{toolboxItem.sortcut}}"></i>
+                <i *ngFor="let toolboxItem of project.toolbox" class="toolbox-icon fab {{toolboxItem.sortcut}}"></i>
             </li>
             <li class="project-title">
                 <app-title class="row name" [mode]="'subsubtitle'" [text]="project.name"></app-title>

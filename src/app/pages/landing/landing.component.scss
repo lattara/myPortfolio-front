@@ -81,6 +81,7 @@ p {
     .landing-title-group {
         margin-top: 5vh;
         padding: 0px;
+        height: 95vh;
     }
     .landing-icons * {
         font-size: 2em !important;
@@ -114,8 +115,33 @@ p {
         padding-top: 20px;
     }
 
-    .arrow-animated {
-        margin-top: 8rem;
-        margin-right: 0px;
+    .fa-code:before {
+        font-size: 32px;
+        padding-right: 2px;
     }
+
+    .fa-headphones-alt:before {
+        font-size: 36px;
+    }
+
+    .fa-angular:before {
+        padding-right: 1px;
+        font-size: 42px;
+    }
+
+    .fa-beer:before {
+        font-size: 39px;
+    }
+
+    .fa-glasses:before {
+        font-size: 35px;
+        padding-right: 3px;
+    }
+
+    .fa-jedi:before {
+        font-size: 38px;
+    }
+    
+
+
 }
