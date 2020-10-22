@@ -35,31 +35,44 @@
 
 //code icon
 .landing-icons i:nth-child(1) {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 //headphones icon
 
 .landing-icons i:nth-child(2) {
     margin-right: 15px;
+    font-size: 33px;
 }
 
 //angular icon
 .landing-icons i:nth-child(3) {
     margin-right: 13px;
-    font-size: 47px;
+    font-size: 40px;
 }
 
 //beer icon
 .landing-icons i:nth-child(4) {
     margin-right: 12px;
-    font-size: 43px;
+    font-size: 38px;
+}
+
+//glasses icon
+.landing-icons i:nth-child(5) {
+    margin-right: 12px;
+    font-size: 33px;
 }
 
 //terminal icon
 .landing-icons i:nth-child(6) {
     margin-right: 12px;
-    font-size: 35px;
+    font-size: 29px;
+}
+
+//jedi icon
+.landing-icons i:nth-child(7) {
+    margin-right: 12px;
+    font-size: 34px;
 }
 
 i {
@@ -79,12 +92,11 @@ p {
 @media (max-width: 700px) {
 
     .landing-title-group {
-        margin-top: 5vh;
+        margin-top: 4vh;
         padding: 0px;
         height: 95vh;
     }
     .landing-icons * {
-        font-size: 2em !important;
         text-align:start;
         margin-bottom: 14px;
         margin-right: 10px;
@@ -100,14 +112,18 @@ p {
     }
 
     .featured-text {
-        font-size: 15px;
+        font-size: 14px;
+        font-family: var(--font-secondary);
+        font-weight: 500;
         padding-right: 20px;
+        line-height: 17px;
+        margin-top: 10px;
     }
 
     .vertical-divider-red {
         border-left: 3px solid var(--secondary-color);
         padding-top: 0px;
-        height: 30rem;
+        height: 28rem;
     }
 
     .container-buttons {
@@ -115,31 +131,39 @@ p {
         padding-top: 20px;
     }
 
-    .fa-code:before {
-        font-size: 32px;
+    .fa-code {
+        font-size: 27px !important;
         padding-right: 2px;
     }
 
-    .fa-headphones-alt:before {
-        font-size: 36px;
+    .fa-headphones-alt {
+        font-size: 32px !important;
+        margin-right: 14px !important;
     }
 
     .fa-angular:before {
-        padding-right: 1px;
-        font-size: 42px;
+        padding-right: 3px !important;
+        font-size: 38px !important;
     }
 
     .fa-beer:before {
-        font-size: 39px;
+        font-size: 37px !important;
+        padding-right: 1px !important;
     }
 
     .fa-glasses:before {
-        font-size: 35px;
-        padding-right: 3px;
+        font-size: 32px !important;
+        padding-right: 3px !important;
     }
 
     .fa-jedi:before {
-        font-size: 38px;
+        font-size: 33px !important;
+        padding-right: 2px !important;
+    }
+
+    .fa-terminal {
+        font-size: 27px !important;
+        padding-right: 3px !important;
     }
     
 
